@@ -6,8 +6,6 @@ import 'package:flutter_repository/src/app/model/user_respository.dart';
 import 'package:flutter_repository/src/app/view/page/profile/profile_page.dart';
 import 'package:flutter_repository/src/app/view/widget/camel_case.dart';
 import 'package:flutter_repository/src/app/view/widget/my_card.dart';
-import 'package:flutter_repository/src/app/view/widget/shimmer_fp.dart';
-import 'package:flutter_repository/src/app/view/widget/something_wrong.dart';
 import 'package:flutter_repository/src/app/view/widget/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

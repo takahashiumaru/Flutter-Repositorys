@@ -2,11 +2,9 @@
 
 import 'package:flutter_repository/src/app/bloc/registration/registration_create_bloc.dart';
 import 'package:flutter_repository/src/app/model/user.dart';
-import 'package:flutter_repository/src/app/util/size.dart';
 import 'package:flutter_repository/src/app/util/toast.dart';
 import 'package:flutter_repository/src/app/view/widget/button.dart';
 import 'package:flutter_repository/src/app/view/widget/input_text.dart';
-import 'package:flutter_repository/src/app/view/widget/input_text_verify.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:form_field_validator/form_field_validator.dart';
@@ -18,7 +16,7 @@ class Registration extends StatelessWidget {
     return MaterialPageRoute(
       builder: (context) => BlocProvider(
         create: (context) => RegistrationBloc(),
-        child: Registration(),
+        child: const Registration(),
       ),
     );
   }
@@ -37,9 +35,12 @@ class Registration extends StatelessWidget {
             iconSize: 24,
           ),
         ),
-        title: const Text('Registration'),
+        title: const Text(
+          'Registration',
+          style: TextStyle(fontFamily: 'Montserrat', fontSize: 18),
+        ),
       ),
-      body: _Form(),
+      body: const _Form(),
     );
   }
 }
@@ -63,6 +64,14 @@ var role = "USER";
 class _FormState extends State<_Form> {
   final _formKey = GlobalKey<FormState>();
   final _requiredValidator = RequiredValidator(errorText: 'This field is required');
+  final _requiredEmailValidator = MultiValidator([
+    RequiredValidator(errorText: 'email is required'),
+    EmailValidator(errorText: 'format email yang kamu imput salah'),
+  ]);
+  final _requiredPasswordValidator = MultiValidator([
+    RequiredValidator(errorText: 'password is required'),
+    MinLengthValidator(6, errorText: 'password minimal 6 karakter'),
+  ]);
   final _nameController = TextEditingController();
   final _nipController = TextEditingController();
   final _emailController = TextEditingController();
@@ -87,7 +96,7 @@ class _FormState extends State<_Form> {
       registration.add(
         RegistrationSubmitCreate(
           name: _nameController.text,
-          nip: _nipController.text,
+          nip: int.parse(_nipController.text),
           email: _emailController.text,
           password: _passwordController.text,
           phone: _phoneController.text,
@@ -139,17 +148,18 @@ class _FormState extends State<_Form> {
               label: 'No Handphone',
               validator: _requiredValidator,
               controller: _phoneController,
+              isNumber: true,
             ),
             const SizedBox(height: 10),
             InputText(
               label: 'Email',
-              validator: _requiredValidator,
+              validator: _requiredEmailValidator,
               controller: _emailController,
             ),
             const SizedBox(height: 10),
             InputText(
               label: 'Password',
-              validator: _requiredValidator,
+              validator: _requiredPasswordValidator,
               controller: _passwordController,
             ),
             const SizedBox(height: 30),

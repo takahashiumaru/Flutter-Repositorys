@@ -1,4 +1,4 @@
-// ignore_for_file: strict_raw_type, lines_longer_than_80_chars
+// ignore_for_file: strict_raw_type, lines_longer_than_80_chars, depend_on_referenced_packages
 
 import 'dart:async';
 

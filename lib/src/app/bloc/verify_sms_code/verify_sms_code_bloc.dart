@@ -1,4 +1,4 @@
-// ignore_for_file: unused_local_variable, strict_raw_type
+// ignore_for_file: unused_local_variable, strict_raw_type, depend_on_referenced_packages
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter_repository/constant/bloc_status.dart';

@@ -1,4 +1,4 @@
-// ignore_for_file: lines_longer_than_80_chars, inference_failure_on_instance_creation
+// ignore_for_file: lines_longer_than_80_chars, inference_failure_on_instance_creation, depend_on_referenced_packages
 
 import 'dart:io';
 

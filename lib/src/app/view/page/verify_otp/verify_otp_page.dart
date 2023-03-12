@@ -62,19 +62,37 @@ class Verifotp extends StatelessWidget {
                           child: const SizedBox(height: 10 * 2),
                         ),
                         // const RegistrasiForm(),
-                        const SizedBox(height: 100),
+                        const SizedBox(height: 80),
                         const Content(),
                         const SizedBox(height: 40),
                         Forms(),
-                        const SizedBox(height: 40),
-                        InkWell(
-                          child: const Text(
-                            "Registration",
-                            style: TextStyle(fontFamily: 'Montserrat', fontSize: 16),
+                        const SizedBox(height: 15),
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: paddingHorizontalPage,
                           ),
-                          onTap: () {
-                            Navigator.push(context, Registration.route());
-                          },
+                          width: 300,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              const Text(
+                                "Done have an account?",
+                                style: TextStyle(fontFamily: 'Montserrat', fontSize: 14),
+                              ),
+                              InkWell(
+                                child: const Text(
+                                  "SignUp?",
+                                  style: TextStyle(
+                                      fontFamily: 'Montserrat',
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                onTap: () {
+                                  Navigator.push(context, Registration.route());
+                                },
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),
@@ -94,11 +112,9 @@ class Content extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Image.asset(
-        'asset/img/user.png',
-        width: 100,
-      ),
+    return Image.asset(
+      'asset/img/user.png',
+      width: 100,
     );
   }
 }
@@ -106,7 +122,11 @@ class Content extends StatelessWidget {
 class Forms extends StatelessWidget {
   Forms({super.key});
   final _formKeys = GlobalKey<FormState>();
-  final _requiredValidator = RequiredValidator(errorText: 'This field is required');
+  final _requiredValidator = RequiredValidator(errorText: 'username is required');
+  final _requiredPasswordValidator = MultiValidator([
+    RequiredValidator(errorText: 'password is required'),
+    MinLengthValidator(6, errorText: 'password minimal 6 karakter'),
+  ]);
   final _nipLoginController = TextEditingController();
   final _passwordLoginController = TextEditingController();
 
@@ -166,40 +186,42 @@ class Forms extends StatelessWidget {
                 child: InputText(
                   // isNumber: false,
                   label: 'Password',
-                  validator: _requiredValidator,
+                  validator: _requiredPasswordValidator,
                   controller: _passwordLoginController,
                 ),
               ),
               const SizedBox(
-                height: 30,
+                height: 15,
               ),
-              Container(
-                padding: const EdgeInsets.only(left: 15, right: 15),
-                child: Button(
-                  onPressed: () {
-                    _submit(context);
-                  },
-                  child: const Text(
-                    'Login',
-                    style: TextStyle(fontFamily: 'Montserrat', fontSize: 16),
+              SizedBox(
+                width: double.infinity,
+                child: InkWell(
+                  onTap: () {},
+                  child: Container(
+                    padding: const EdgeInsets.only(right: 10),
+                    child: const Text(
+                      "Forgot password? ",
+                      textAlign: TextAlign.right,
+                      style: TextStyle(fontFamily: 'Montserrat', fontSize: 14),
+                    ),
                   ),
+                ),
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              Button(
+                onPressed: () {
+                  _submit(context);
+                },
+                child: const Text(
+                  'Login',
+                  style: TextStyle(fontFamily: 'Montserrat', fontSize: 15),
                 ),
               ),
             ],
           ),
         ),
-        // const SizedBox(
-        //   height: 40,
-        // ),
-        // Container(
-        //   padding: const EdgeInsets.only(left: 15, right: 15),
-        //   child: Button(
-        //     onPressed: () {
-        //       _submit(context);
-        //     },
-        //     child: const Text('Send'),
-        //   ),
-        // ),
       ),
     );
   }

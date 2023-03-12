@@ -1,8 +1,6 @@
 import 'package:flutter_repository/src/app/bloc/users_delete/users_delete_bloc.dart';
 import 'package:flutter_repository/src/app/bloc/users_query/users_query_bloc.dart';
-import 'package:flutter_repository/src/app/util/size.dart';
 import 'package:flutter_repository/src/app/util/toast.dart';
-// import 'package:flutter_repository/src/app/view/page/product_create/product_create_page.dart';
 import 'package:flutter_repository/src/app/view/widget/please_wait.dart';
 import 'package:flutter_repository/src/app/model/users.dart';
 import 'package:flutter_repository/src/app/view/widget/something_wrong.dart';
@@ -10,8 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_repository/src/app/view/widget/button.dart';
 import 'package:flutter_repository/src/app/view/widget/popup.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class UserListPage extends StatefulWidget {

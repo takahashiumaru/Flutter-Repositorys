@@ -59,12 +59,8 @@ class App extends StatelessWidget {
         bloc: authenticationBloc,
         builder: (context, state) {
           if (state is AuthenticationAuthenticated) {
-            DateTime now = DateTime.now();
-            print(now.hour.toString() + now.minute.toString() + now.second.toString());
             return MenuPage.prepare();
           } else {
-            DateTime now = DateTime.now();
-            print(now.year.toString() + now.month.toString() + now.day.toString());
             return const WelcomePage();
           }
         },

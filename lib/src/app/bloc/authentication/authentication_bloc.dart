@@ -28,8 +28,6 @@ class AuthenticationBloc extends HydratedBloc<AuthenticationEvent, Authenticatio
     try {
       if (json.containsKey('token') && json['token'] != '') {
         userRepository.setUser(json['token'] as String);
-
-        print(userRepository.token);
         return AuthenticationAuthenticated();
       } else {
         return AuthenticationUnauthenticated();

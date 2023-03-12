@@ -72,9 +72,9 @@ class Button extends StatelessWidget {
         color == Colors.white ? Colors.grey[700] : null,
       ),
       shape: MaterialStateProperty.all(
-        RoundedRectangleBorder(borderRadius: BorderRadius.circular(120)),
+        RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
       ),
-      overlayColor: MaterialStateProperty.all(secondaryColor),
+      overlayColor: MaterialStateProperty.all(primaryColor),
     );
 
     if (mini) {
@@ -92,7 +92,7 @@ class Button extends StatelessWidget {
       style: buttonStyle,
       onPressed: !isInProgress ? onPressed : null,
       child: SizedBox(
-        height: 20,
+        height: 19,
         width: isInProgress ? 20 : null,
         child: isInProgress
             ? const CircularProgressIndicator(

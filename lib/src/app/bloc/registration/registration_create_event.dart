@@ -13,7 +13,7 @@ class RegistrationSubmitCreate extends RegistrationEvent {
       required this.role,
       required this.joinDate});
   final String name;
-  final String nip;
+  final int nip;
   final String email;
   final String password;
   final String phone;

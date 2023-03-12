@@ -26,7 +26,7 @@ class ApiProvider extends BaseApi {
     required String token,
     required int usersId,
   }) async {
-    final url = '${baseUrl}/users/$usersId';
+    final url = '$baseUrl/users/$usersId';
     await request(
       url,
       headers: {HttpHeaders.authorizationHeader: 'Bearer $token'},

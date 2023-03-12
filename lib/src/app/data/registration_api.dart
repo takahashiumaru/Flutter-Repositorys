@@ -1,15 +1,11 @@
-import 'dart:io';
-
 import 'package:flutter_repository/src/app/data/registration_api_base.dart';
-
-import 'package:flutter_repository/src/app/model/user.dart';
 
 final apiProvider = UserApiProvider();
 
 class UserApiProvider extends UserBaseApi {
   Future<Map<String, dynamic>> registration({
     required String name,
-    required String nip,
+    required int nip,
     required String password,
     required String email,
     required String phone,

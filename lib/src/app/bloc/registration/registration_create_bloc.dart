@@ -1,10 +1,9 @@
-// ignore_for_file: strict_raw_type, lines_longer_than_80_chars
+// ignore_for_file: strict_raw_type, lines_longer_than_80_chars, depend_on_referenced_packages
 
 import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:flutter_repository/constant/text.dart';
 import 'package:flutter_repository/src/app/data/registration_api.dart';
-import 'package:flutter_repository/src/app/model/user_respository.dart';
 import 'package:flutter/services.dart';
 import 'package:meta/meta.dart';
 part 'registration_create_event.dart';

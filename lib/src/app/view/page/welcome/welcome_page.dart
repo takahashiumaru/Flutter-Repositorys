@@ -5,7 +5,6 @@ import 'package:flutter_repository/src/app/view/page/verify_otp/verify_otp_page.
 import 'package:flutter_repository/src/app/view/widget/theme.dart';
 import 'package:community_material_icon/community_material_icon.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_repository/src/app/view/widget/button.dart';
 // import 'package:authentication_repository/authentication_repository.dart';
 
 class WelcomePage extends StatefulWidget {
@@ -48,10 +47,10 @@ class _WelcomePage extends State<WelcomePage> {
                       Container(
                         padding: const EdgeInsets.only(top: 60),
                         child: const Text(
-                          'Hello!',
+                          'My Apps',
                           style: TextStyle(
                             fontFamily: 'Montserrat',
-                            fontWeight: FontWeight.w900,
+                            fontWeight: FontWeight.w800,
                             fontSize: 24,
                             color: primaryColor,
                           ),
@@ -94,7 +93,7 @@ class _WelcomePage extends State<WelcomePage> {
                                 shape: BoxShape.circle,
                                 color: (Theme.of(context).brightness == Brightness.dark
                                         ? Colors.white
-                                        : Colors.black)
+                                        : const Color(0XFF00A8E8))
                                     .withOpacity(_current == entry.key ? 0.9 : 0.4),
                               ),
                             ),
